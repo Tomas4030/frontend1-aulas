@@ -1,73 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Últimas Notícias de Rainbow Six Siege</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+
+    <div class="navbar">
+        <a href="index.html" class="home">Home</a>
+        <nav>
+            <a href="News"></a>
+            <a href="Leaks"></a>
+            <a href="#"></a>
+        </nav>
+    </div>
 </head>
 <body>
-    <h1>Últimas Notícias sobre Rainbow Six Siege</h1>
-    <div id="news-container"></div>
-
-    <script>
-        // Função para buscar e exibir as notícias do RSS Feed
-        async function fetchNews() {
-            const rssUrl = 'https://rss.app/feeds/6ndkljheq7zkd4wf.xml';  // Alterar para o feed RSS real (como o da Polygon ou Eurogamer)
-
-            // Usar um proxy para converter RSS XML para JSON
-            const proxyUrl = 'https://api.rss2json.com/v1/api.json?rss_url=';
-            const apiUrl = proxyUrl + encodeURIComponent(rssUrl);
-            
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-                
-                const container = document.getElementById('news-container');
-                
-                // Limitar para as 5 últimas notícias
-                data.items.slice(0, 5).forEach(article => {
-                    const articleDiv = document.createElement('div');
-                    articleDiv.classList.add('news-article');
-                    articleDiv.innerHTML = `
-                        <h3><a href="${article.link}" target="_blank">${article.title}</a></h3>
-                        <p>${article.description}</p>
-                        <hr>
-                    `;
-                    container.appendChild(articleDiv);
-                });
-            } catch (error) {
-                console.error('Erro ao carregar o feed RSS:', error);
-            }
-        }
-
-        // Chama a função para exibir as notícias
-        fetchNews();
-    </script>
-
-    <style>
-        .news-article {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-        }
-
-        .news-article h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .news-article p {
-            font-size: 1rem;
-            color: #555;
-        }
-
-        .news-article hr {
-            border: 0;
-            border-top: 1px solid #ddd;
-            margin-top: 10px;
-        }
-    </style>
+    
 </body>
 </html>
