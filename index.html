@@ -1,21 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/CSS/style.css">
-
-    <div class="navbar">
-        <a href="index.html" class="home">Home</a>
-        <nav>
-            <a href="News"></a>
-            <a href="Leaks"></a>
-            <a href="#"></a>
-        </nav>
-    </div>
+    <title>R6 news</title>
+    <link rel="stylesheet" href="/CSS/main.css">
+    <link href="/components/favicon.ico" rel="icon" type="image/x-icon">
 </head>
+
 <body>
-    
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="home"><img src="components/logo.jpeg" alt="Home"></a>
+            <nav>
+                <a href="#">News</a>
+                <a href="#">Leaks</a>
+                <a href="#">Community</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="latest-news">
+            <h1>Latest Major News</h1>
+            <p>Stay up to date with the latest news about Rainbow Six Siege.</p>
+
+            <article class="card">
+                <div class="card-content" id="latest_news1">
+                    <img id="latest_news1_image" alt="Image description" class="card-img">
+                    <div class="text-content">
+                        <h2 id="latest_news1_title"></h2>
+                        <p id="latest_news1_text"></p>
+                        <a href="#" class="btn">Read more</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-content" id="latest_news2">
+                    <img id="latest_news2_image" alt="Image description" class="card-img">
+                    <div class="text-content">
+                        <h2 id="latest_news2_title"></h2>
+                        <p id="latest_news2_text"></p>
+                        <a href="#" class="btn">Read more</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="latest-leaks">
+            <h1>Latest Leaks</h1>
+            <p>Discover the latest leaks about Rainbow Six Siege.</p>
+
+            <article class="card">
+                <div class="card-content" id="latest_leaks1">
+                    <img id="latest_leaks1_image" alt="Image description" class="card-img">
+                    <div class="text-content">
+                        <h2 id="latest_leaks1_title"></h2>
+                        <p id="latest_leaks1_text"></p>
+                        <a href="#" class="btn">Read more</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-content" id="latest_leaks2">
+                    <img id="latest_leaks2_image" alt="Image description" class="card-img">
+                    <div class="text-content">
+                        <h2 id="latest_leaks2_title"></h2>
+                        <p id="latest_leaks2_text"></p>
+                        <a href="#" class="btn">Read more</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Serviço</a></li>
+                    <li><a href="#">Contate-nos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h3>Siga-nos</h3>
+                <ul>
+                    <li>
+                        <a href="https://facebook.com" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                            Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://youtube.com" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+                            YouTube
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            <div class="footer-copyright">
+                <p>&copy; 2025 R6 News. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="JS/main.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,102 @@
+/* Main Section */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Titles */
+h1 {
+    font-size: 2.5rem;
+    color: #e74c3c; /* Highlight color */
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* General Card Styling */
+.card {
+    background-color: #2c3e50;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: row;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Card Content (Image + Text) */
+.card-content {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    width: 100%;
+}
+
+.card-img {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+
+.text-content {
+    flex: 1;
+}
+
+/* Text inside the card */
+.text-content h2 {
+    font-size: 1.8rem;
+    color: #e74c3c;
+}
+
+.text-content p {
+    color: #bdc3c7;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.btn {
+    color: #ffffff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e74c3c;
+}
+
+/* Sections for Latest News & Latest Leaks */
+.latest-news, .latest-leaks {
+    margin-bottom: 40px;
+}
+
+.latest-news h1, .latest-leaks h1 {
+    margin-bottom: 10px;
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 1.1rem;
+    color: #bdc3c7;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
