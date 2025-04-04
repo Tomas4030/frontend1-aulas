@@ -1,41 +1,4 @@
-const post = {
-    id: 1,
-    title: "post1",
-    body: "body1",
-    author: "author1",
-    createAt: new Date(),
-    updateAT: new Date(),
-}
-
-const postList = [post];
-
-const navmenu = [
-    {
-        id: 1,
-        title: "Home",
-        url: "/",
-    },
-    {
-        id: 2,
-        title: "News",
-        url: "/news",
-    },
-    {
-        id: 3,
-        title: "Leaks",
-        url: "/Leaks",
-    },
-]
-
-
-//ex 2
-const Pessoas = {
-    name: "Tomas",
-    email: "tomas@gmail.com",
-    idade: 20,
-}
-
-//projeto
+//Main Page
 
 async function fetchJSON() {
     try {
@@ -59,3 +22,48 @@ function updateContent(prefix, content) {
 
 fetchJSON();
 
+
+//New Page
+async function carregarNoticias() {
+    try {
+        const resposta = await fetch('/JSON/data.json');
+        const dados = await resposta.json();
+
+        const noticias = dados.noticias;
+        
+        noticias.sort((a, b) => new Date(b.data) - new Date(a.data));
+
+        const container = document.getElementById('noticias-container');
+        noticias.forEach(noticia => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+
+            const cardContent = document.createElement('div');
+            cardContent.classList.add('card-content');
+
+            const textContent = document.createElement('div');
+            textContent.classList.add('text-content');
+
+            const titulo = document.createElement('h2');
+            titulo.textContent = noticia.titulo;
+
+            const data = document.createElement('p');
+            data.classList.add('date');
+            data.textContent = `Publicado em ${noticia.data}`;
+
+            const descricao = document.createElement('p');
+            descricao.textContent = noticia.descricao;
+
+            textContent.appendChild(titulo);
+            textContent.appendChild(data);
+            textContent.appendChild(descricao);
+            cardContent.appendChild(textContent);
+            card.appendChild(cardContent);
+            container.appendChild(card);
+        });
+    } catch (erro) {
+        console.log('Erro ao carregar notícias:', erro);
+    }
+}
+
+carregarNoticias();

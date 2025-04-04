@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url(home.css);
+@import url(news.css);
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -15,7 +16,7 @@ body {
 }
 
 header {
-    width: 100%;
+    width: 100vh;
     position: sticky;
     top: 0;  
     left: 0;
@@ -25,7 +26,7 @@ header {
     z-index: 1000;
     transition: top 0.3s ease;  
 
-    max-width: 95vw; 
+    max-width: 95.3vw; 
     width: 100%; 
     margin: 0 auto; 
 }
