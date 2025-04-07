@@ -22,9 +22,24 @@
     </header>
 
     <main>
-        <section class="latest-news">
-            <h1>Últimas Notícias</h1>
-            <div id="info-container"></div>
+        <section class="hero">
+            <div class="hero-content">
+                <h2 id="hero-title"></h2>
+                <p id="hero-description"></p>
+            </div>
+        </section>
+
+        <section class="featured-posts">
+            <div class="posts-header">
+                <a href="add-post.html" class="add-post-btn">Add Post</a>
+            </div>
+            <h2>Posts</h2>
+            <div class="posts-grid" id="posts-container" style="
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 20px;
+            ">
+            </div>
         </section>
     </main>
 
@@ -75,7 +90,7 @@
     </footer>
 
 
-    <script src="/JS/News-Leaks.js"></script>
+    <script src="/JS/Main.js"></script>
 </body>
 
 </html>
