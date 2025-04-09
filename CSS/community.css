@@ -1,0 +1,86 @@
+/* Container para as postagens */
+.post-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    height: 100%;
+    overflow-y: auto; /* Permite rolar caso as postagens ocupem muito espaço */
+}
+
+/* Estilo das postagens individuais */
+.post-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.post-item:hover {
+    background-color: #e0f7fa;
+}
+
+/* Imagem da postagem - ajustada para um tamanho mais proporcional */
+.post-image {
+    max-width: 100%;
+    height: auto; /* Mantém a proporção original da imagem */
+    border-radius: 8px;
+    margin-bottom: 10px;
+    max-height: 300px; /* Limita a altura das imagens para não ficarem muito grandes */
+}
+
+/* Título da postagem */
+.post-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+/* Conteúdo da postagem */
+.post-content {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Autor da postagem */
+.post-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 15px;
+}
+
+/* Avatar do autor */
+.post-author-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Informações do autor */
+.post-author-info {
+    display: flex;
+    align-items: center;
+}
+
+.post-author-name {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Data da postagem */
+.post-date {
+    font-size: 0.85rem;
+    color: #aaa;
+}

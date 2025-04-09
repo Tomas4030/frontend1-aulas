@@ -1,0 +1,97 @@
+
+
+/* Estilos para o formulário */
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1000px; /* Aumentando ainda mais a largura do formulário */
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 40px 50px; /* Aumentando o preenchimento para criar mais espaço */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem; /* Aumentando a fonte para melhor legibilidade */
+    border: 2px solid #dcdcdc; /* Borda suave para destacar */
+}
+
+/* Estilo dos campos de entrada */
+.post-form input, .post-form textarea {
+    padding: 15px;
+    font-size: 1.2rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 100%; /* Garantir que ocupe toda a largura do formulário */
+    box-sizing: border-box;
+}
+
+/* Foco nos campos de entrada */
+.post-form input:focus, .post-form textarea:focus {
+    outline: none;
+    border-color: #007bff; /* Cor azul ao focar nos campos */
+}
+
+/* Botão */
+.post-form button {
+    padding: 15px;
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    width: 100%; /* O botão vai ocupar toda a largura do formulário */
+}
+
+/* Efeito de hover no botão */
+.post-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Link de navegação */
+.add-post-link {
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.add-post-link:hover {
+    background-color: #218838;
+}
+
+/* Estilos da lista de posts */
+#post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilo dos posts */
+.post-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.post-content {
+    font-size: 1rem;
+    color: #333;
+}
+
+.post-author {
+    font-size: 0.9rem;
+    color: #888;
+    text-align: right;
+}

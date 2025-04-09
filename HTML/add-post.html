@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R6 News</title>
+    <title>R6 Leaks</title>
     <link rel="stylesheet" href="/CSS/main.css">
     <link href="/components/favicon.ico" rel="icon" type="image/x-icon">
 </head>
@@ -22,10 +22,15 @@
     </header>
 
     <main>
-        <section class="latest-news">
-            <h1>Últimas Notícias</h1>
-            <div id="info-container"></div>
-        </section>
+        <h2>Add a New Post</h2>
+        <form id="add-post-form" class="post-form">
+            <input type="text" id="post-title" name="title" placeholder="Title" required />
+            <textarea id="post-content" name="content" placeholder="Content" required></textarea>
+            <input type="url" id="post-image" name="image" placeholder="Image URL" required />
+            <input type="text" id="post-author" name="author" placeholder="Author" required />
+            <input type="url" id="post-avatar" name="avatar" placeholder="Author Avatar URL" required />
+            <button type="submit">Add Post</button>
+        </form>
     </main>
 
     <footer>
@@ -45,26 +50,22 @@
                 <ul>
                     <li>
                         <a href="https://facebook.com" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                                alt="Facebook">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
                             Facebook
                         </a>
                     </li>
                     <li>
                         <a href="https://instagram.com" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg"
-                                alt="Instagram">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
                             Instagram
                         </a>
                     </li>
                     <li>
                         <a href="https://youtube.com" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"
-                                alt="YouTube">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
                             YouTube
                         </a>
                     </li>
-
                 </ul>
             </div>
 
@@ -74,8 +75,7 @@
         </div>
     </footer>
 
-
-    <script src="/JS/News-Leaks.js" type="module"></script>
+    <script src="/JS/add-posts.js" type="module"></script>
 </body>
 
 </html>

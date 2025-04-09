@@ -1,31 +1,35 @@
-document.addEventListener("DOMContentLoaded", function () {
-    fetchPost();
-  });
-  
-  function fetchPost() {
-    const postId = window.location.search.split("=")[1];
-    fetch("JSON/profile.json")
-      .then((response) => response.json())
-      .then((result) => {
-        const data = result.user.posts.find((post) => post.id === Number(postId));
-        renderPost(data);
-      });
-  }
-  
-  function renderPost(data) {
-    const heroContainer = document.getElementById("hero-container");
-    const title = document.getElementById("hero-title");
-    const postContent = document.getElementById("post-content");
-    const postGallery = document.getElementById("post-gallery");
-    title.innerHTML = data.title;
-    heroContainer.style.backgroundImage = `url(${data.gallery[0].url})`;
-    heroContainer.style.backgroundSize = "cover";
-    heroContainer.style.backgroundPosition = "center";
-    heroContainer.style.backgroundRepeat = "no-repeat";
-    postContent.innerHTML = data.content;
-    postGallery.innerHTML = data.gallery
-      .map((image) => {
-        return `<img src="${image.url}" alt="${image.alt}" />`;
-      })
-      .join("");
-  }
+import { getPosts } from "../lib/Api.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const posts = await getPosts();
+    displayPosts(posts);
+});
+
+function displayPosts(posts) {
+    const postList = document.getElementById("post-list");
+    postList.innerHTML = ""; 
+
+    posts.forEach((post) => {
+        const postItem = document.createElement("div");
+        postItem.classList.add("post-item");
+
+        postItem.innerHTML = `
+            <img class="post-image" src="${post.image}" alt="${post.title}">
+            <h3 class="post-title">${post.title}</h3>
+            <p class="post-content">${post.content}</p>
+            <div class="post-author">
+                <div class="post-author-info">
+                    <img class="post-author-avatar" src="${post.avatar}" alt="${post.author}"/>
+                    <div class="post-author-name">${post.author}</div>
+                </div>
+                <div class="post-date">${new Date(post.createdAt).toLocaleDateString("pt-PT", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                })}</div>
+            </div>
+        `;
+
+        postList.prepend(postItem); 
+    });
+}

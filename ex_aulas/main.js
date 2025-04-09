@@ -79,3 +79,18 @@ document.getElementById('theme').addEventListener('change', saveTheme);
 loadName();
 loadTheme();
 
+
+
+
+
+
+///aula do mock api
+
+
+const Api = "https://67f5684e913986b16fa47719.mockapi.io/api/:endpoint";
+
+export const getPost = async () => {
+  const response = await fetch(Api + "Posts");
+  const data = await response.json();
+  return data;
+};
