@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log(dados);
 
         if (window.location.pathname.includes("Leaks.html")) {
-            carregarConteudo(dados[0], 'leaks'); // Corrigido para 'leaks'
+            carregarConteudo(dados[0], 'leaks');
         } else if (window.location.pathname.includes("News.html")) {
-            carregarConteudo(dados[0], 'noticias'); // Corrigido para 'noticias'
+            carregarConteudo(dados[0], 'noticias');
         }
 
     } catch (erro) {
@@ -21,9 +21,9 @@ async function carregarConteudo(dados, tipo) {
         let conteudo = [];
 
         if (tipo === 'noticias') {
-            conteudo = dados.noticias; // Corrigido para acessar 'noticias'
+            conteudo = dados.noticias;
         } else if (tipo === 'leaks') {
-            conteudo = dados.leaks; // Corrigido para acessar 'leaks'
+            conteudo = dados.leaks;
         }
 
         if (Array.isArray(conteudo)) {

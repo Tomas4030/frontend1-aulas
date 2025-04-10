@@ -1,86 +1,191 @@
-/* Container para as postagens */
-.post-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    margin-top: 20px;
-    height: 100%;
-    overflow-y: auto; /* Permite rolar caso as postagens ocupem muito espaço */
+#post-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-/* Estilo das postagens individuais */
 .post-item {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
-    padding: 15px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .post-item:hover {
-    background-color: #e0f7fa;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* Imagem da postagem - ajustada para um tamanho mais proporcional */
-.post-image {
-    max-width: 100%;
-    height: auto; /* Mantém a proporção original da imagem */
-    border-radius: 8px;
-    margin-bottom: 10px;
-    max-height: 300px; /* Limita a altura das imagens para não ficarem muito grandes */
+.post-image,
+.preview-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
 }
 
-/* Título da postagem */
 .post-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 0;
-    color: #333;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #222;
 }
 
-/* Conteúdo da postagem */
 .post-content {
-    font-size: 1rem;
-    color: #555;
-    margin: 10px 0;
+    font-size: 1.05rem;
+    color: #444;
+    margin-bottom: 20px;
 }
 
-/* Autor da postagem */
 .post-author {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.9rem;
-    color: #888;
-    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 16px;
+    margin-top: auto;
 }
 
-/* Avatar do autor */
-.post-author-avatar {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-/* Informações do autor */
 .post-author-info {
     display: flex;
     align-items: center;
+    gap: 10px;
+}
+
+.post-author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
 }
 
 .post-author-name {
-    font-weight: bold;
-    color: #333;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #555;
 }
 
-/* Data da postagem */
 .post-date {
     font-size: 0.85rem;
-    color: #aaa;
+    color: #999;
+    font-style: italic;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.post-actions button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.post-actions button:hover {
+    transform: scale(1.02);
+}
+
+.edit-post {
+    background-color: #00bcd4;
+    color: white;
+}
+
+.edit-post:hover {
+    background-color: #0097a7;
+}
+
+.save-post {
+    background-color: #4caf50;
+    color: white;
+}
+
+.save-post:hover {
+    background-color: #388e3c;
+}
+
+.cancel-edit {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+.cancel-edit:hover {
+    background-color: #757575;
+}
+
+.delete-post {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-post:hover {
+    background-color: #c62828;
+}
+
+.edit-title-input,
+.edit-content-textarea,
+.edit-image-input {
+    font-family: inherit;
+    font-size: 1rem;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 12px;
+    width: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.edit-title-input {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.edit-content-textarea {
+    min-height: 100px;
+    resize: vertical;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.edit-image-input {
+    margin-bottom: 10px;
+}
+
+.edit-title-input:focus,
+.edit-content-textarea:focus,
+.edit-image-input:focus {
+    outline: none;
+    border-color: #00bcd4;
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.15);
+}
+
+.edit-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.preview-image {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #ddd;
 }

@@ -3,13 +3,11 @@ import { createPost } from "../lib/Api.js";
 document.addEventListener("DOMContentLoaded", function () {
     const addPostForm = document.getElementById("add-post-form");
 
-    // Verifica se o formulário está disponível
     if (!addPostForm) {
         console.error("Formulário não encontrado.");
         return;
     }
 
-    // Lidar com o envio do formulário
     addPostForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 

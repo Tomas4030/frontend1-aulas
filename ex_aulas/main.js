@@ -80,10 +80,6 @@ loadName();
 loadTheme();
 
 
-
-
-
-
 ///aula do mock api
 
 
@@ -94,3 +90,6 @@ export const getPost = async () => {
   const data = await response.json();
   return data;
 };
+
+
+//ex da api
