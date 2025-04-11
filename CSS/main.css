@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Garante que o corpo ocupe 100% da altura da tela */
-    background-image: url('/components/fundo.jpg');
+    background-image: url('../components/fundo.jpg');
     background-size: cover; /* A imagem vai cobrir toda a tela */
     background-position: center; /* A imagem vai estar centralizada */
     background-repeat: no-repeat; /* A imagem não vai se repetir */
