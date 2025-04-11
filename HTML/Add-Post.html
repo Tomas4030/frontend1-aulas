@@ -2,93 +2,96 @@
 <html lang="pt">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R6 Leaks</title>
-    <link rel="stylesheet" href="../CSS/main.css">
-    <link href="../components/favicon.ico" rel="icon" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>R6 Leaks</title>
+  <link rel="stylesheet" href="../CSS/main.css">
+  <link href="../components/favicon.ico" rel="icon" type="image/x-icon">
 </head>
 
 <body>
-    <header>
-        <div class="navbar">
-            <a href="../index.html" class="home"><img src="../components/logo.jpeg" alt="Home"></a>
-            <nav>
-                <a href="./News.html">News</a>
-                <a href="./Leaks.html">Leaks</a>
-                <a href="./Community.html">Community</a>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <div class="navbar">
+      <a href="../index.html" class="home"><img src="../components/logo.jpeg" alt="Home"></a>
+      <nav>
+        <a href="News.html">News</a>
+        <a href="Leaks.html">Leaks</a>
+        <a href="Community.html">Community</a>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <form id="add-post-form" class="post-form">
-            <label for="post-title">Title</label>
-            <input type="text" id="post-title" name="title" placeholder="Enter the post title" required />
+  <main>
+    <section class="add-post-container">
+      <form id="add-post-form" class="post-form">
+        <label for="post-title">Title</label>
+        <input type="text" id="post-title" name="title" placeholder="Enter the post title" required />
+    
+        <label for="post-content">Content</label>
+        <textarea id="post-content" name="content" placeholder="Write your post content here..." required maxlength="50"></textarea>
+    
+        <label for="post-image">Image URL</label>
+        <input type="url" id="post-image" name="image" placeholder="Enter the image URL" required />
+    
+        <label for="post-author">Author</label>
+        <input type="text" id="post-author" name="author" placeholder="Enter the author's name" required />
+    
+        <label for="post-avatar">Author Avatar URL</label>
+        <input type="url" id="post-avatar" name="avatar" placeholder="Enter the author's avatar URL" required />
+    
+        <button type="submit">Add Post</button>
+      </form>
+    </section>
+    
+  </main>
 
-            <label for="post-content">Content</label>
-            <textarea id="post-content" name="content" placeholder="Write your post content here..."
-                required></textarea>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-links">
+        <h3>Links Úteis</h3>
+        <ul>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Termos de Serviço</a></li>
+          <li><a href="#">Contate-nos</a></li>
+        </ul>
+      </div>
 
-            <label for="post-image">Image URL</label>
-            <input type="url" id="post-image" name="image" placeholder="Enter the image URL" required />
+      <div class="footer-social">
+        <h3>Siga-nos</h3>
+        <ul>
+          <li>
+            <a href="https://facebook.com" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                alt="Facebook">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://youtube.com" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"
+                alt="YouTube">
+              YouTube
+            </a>
+          </li>
+        </ul>
+      </div>
 
-            <label for="post-author">Author</label>
-            <input type="text" id="post-author" name="author" placeholder="Enter the author's name" required />
+      <div class="footer-copyright">
+        <p>&copy; 2025 R6 News. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
 
-            <label for="post-avatar">Author Avatar URL</label>
-            <input type="url" id="post-avatar" name="avatar" placeholder="Enter the author's avatar URL" required />
-
-            <button type="submit">Add Post</button>
-        </form>
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-links">
-                <h3>Links Úteis</h3>
-                <ul>
-                    <li><a href="#">Sobre Nós</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
-                    <li><a href="#">Termos de Serviço</a></li>
-                    <li><a href="#">Contate-nos</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-social">
-                <h3>Siga-nos</h3>
-                <ul>
-                    <li>
-                        <a href="https://facebook.com" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                                alt="Facebook">
-                            Facebook
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://instagram.com" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg"
-                                alt="Instagram">
-                            Instagram
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://youtube.com" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"
-                                alt="YouTube">
-                            YouTube
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="footer-copyright">
-                <p>&copy; 2025 R6 News. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../JS/add-posts.js" type="module"></script>
+  <script src="../JS/add-posts.js" type="module"></script>
 </body>
 
-</html> 
+</html>
+
+

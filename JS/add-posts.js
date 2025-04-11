@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         try {
-            // Envia o novo post para a API
             const postResponse = await createPost(newPost);
             console.log("Post criado com sucesso:", postResponse);
             addPostForm.reset();
