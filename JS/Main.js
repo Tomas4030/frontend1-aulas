@@ -1,7 +1,7 @@
 //Main Page
 async function fetchJSON() {
     try {
-        const response = await fetch("../JSON/data.json");
+        const response = await fetch("./JSON/data.json");
         const data = await response.json();
         
         updateContent("latest_news1", data.latest_news.latest_news1);
