@@ -3,24 +3,24 @@
     "latest_news1": {
       "title": "New Maps Confirmed!",
       "text": "The developers have officially announced the arrival of new maps for the upcoming season. Find out all the details!",
-      "image": "./components/logo.jpeg"
+      "image": "../components/PATCHNOTES_Y10S1.2_960x540.avif"
     },
     "latest_news2": {
       "title": "New Operators Incoming",
       "text": "Leaked information reveals the abilities and origins of the upcoming operators. See everything we know so far.",
-      "image": "./components/PATCHNOTES_Y10S1.2_960x540.avif"
+      "image": "../components/PATCHNOTES_Y10S1.2_960x540.avif"
     }
   },
   "latest_leaks": {
     "latest_leaks1": {
       "title": "New Maps Leaked!",
       "text": "Images of new maps have been revealed that could be coming in the next season. Find out more here!",
-      "image": "./components/PATCHNOTES_Y10S1.2_960x540.avif"
+      "image": "../components/PATCHNOTES_Y10S1.2_960x540.avif"
     },
     "latest_leaks2": {
       "title": "New Operators Leaked",
       "text": "Leaks suggest what the abilities of the upcoming operators will be. Check out the latest news here!",
-      "image": "./components/PATCHNOTES_Y10S1.2_960x540.avif"
+      "image": "../components/PATCHNOTES_Y10S1.2_960x540.avif"
     }
   },
   "noticias": [
