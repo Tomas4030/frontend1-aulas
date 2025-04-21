@@ -92,4 +92,38 @@ export const getPost = async () => {
 };
 
 
-//ex da api
+function buscarImagem() {
+  const breed = document.getElementById("breed").value.trim().toLowerCase();
+  const api = `https://dog.ceo/api/breed/${breed}/images/random`;
+
+  fetch(api)
+    .then(response => {
+      if (!response.ok) throw new Error("Raça não encontrada");
+      return response.json();
+    })
+    .then(data => {
+      const img = document.getElementById("dog-image");
+      img.src = data.message;
+    })
+    .catch(error => {
+      console.error(error);
+      alert("Erro ao buscar imagem: " + error.message);
+    });
+}
+
+document.addEventListener(
+  "keydown",
+  (e) => {
+    if (e.key === "Enter") {
+      toggleFullScreen();
+    }
+  },
+  false,
+);
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else if (document.exitFullscreen) {
+    document.exitFullscreen();
+  }
+}

@@ -20,6 +20,3 @@ function updateContent(prefix, content) {
 }
 
 fetchJSON();
-
-
-
