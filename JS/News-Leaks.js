@@ -40,6 +40,15 @@ async function carregarConteudo(dados, tipo) {
             const cardContent = document.createElement('div');
             cardContent.classList.add('card-content');
 
+            // 📷 Adiciona a imagem
+            if (item.image) {
+                const img = document.createElement('img');
+                img.src = item.image;
+                img.alt = item.titulo;
+                img.classList.add('card-img');
+                cardContent.appendChild(img);
+            }
+
             const textContent = document.createElement('div');
             textContent.classList.add('text-content');
 
@@ -48,10 +57,16 @@ async function carregarConteudo(dados, tipo) {
 
             const data = document.createElement('p');
             data.classList.add('date');
-            data.textContent = `Publicado em ${item.data}`;
+            data.textContent = item.data;
 
             const descricao = document.createElement('p');
             descricao.textContent = item.descricao;
+
+            const botaoLeiaMais = document.createElement('a');
+            botaoLeiaMais.href = item.link;
+            botaoLeiaMais.classList.add('button-leia-mais');
+            botaoLeiaMais.textContent = 'LEIA MAIS';
+
 
             textContent.appendChild(titulo);
             textContent.appendChild(data);
@@ -59,6 +74,7 @@ async function carregarConteudo(dados, tipo) {
             cardContent.appendChild(textContent);
             card.appendChild(cardContent);
             container.appendChild(card);
+            textContent.appendChild(botaoLeiaMais);
         });
     } catch (erro) {
         console.log('Erro ao carregar conteúdo:', erro);

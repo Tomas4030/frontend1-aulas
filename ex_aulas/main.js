@@ -127,3 +127,39 @@ function toggleFullScreen() {
     document.exitFullscreen();
   }
 }
+
+//canvas
+
+const testCanvas = document.getElementById("test-canvas");
+const testCtx = testCanvas.getContext("2d");
+
+testCtx.fillStyle = "black"; // Set background color
+testCtx.fillRect(0, 0, testCanvas.width, testCanvas.height); // Fill entire canvas
+
+testCtx.fillStyle = "red";
+testCtx.fillRect(100, 100, 100, 100);
+
+testCtx.beginPath();
+testCtx.arc(300, 300, 50, 0, Math.PI * 2);
+testCtx.fillStyle = "blue";
+testCtx.fill();
+
+testCtx.beginPath();
+testCtx.moveTo(400, 100);
+testCtx.lineTo(300, 200);
+testCtx.strokeStyle = "green";
+testCtx.lineWidth = 5;
+testCtx.stroke();
+
+const animateCanvas = document.getElementById("animate-canvas");
+const animateCtx = animateCanvas.getContext("2d");
+
+let x = 0;
+function animate() {
+  animateCtx.clearRect(0, 0, animateCanvas.width, animateCanvas.height);
+  animateCtx.fillRect(x, 100, 100, 100);
+  x += 1;
+  requestAnimationFrame(animate);
+}
+animate();
+
