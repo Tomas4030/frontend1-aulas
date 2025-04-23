@@ -40,7 +40,6 @@ async function carregarConteudo(dados, tipo) {
             const cardContent = document.createElement('div');
             cardContent.classList.add('card-content');
 
-            // 📷 Adiciona a imagem
             if (item.image) {
                 const img = document.createElement('img');
                 img.src = item.image;
@@ -60,13 +59,12 @@ async function carregarConteudo(dados, tipo) {
             data.textContent = item.data;
 
             const descricao = document.createElement('p');
-            descricao.textContent = item.descricao;
+            descricao.textContent = item.resumo;
 
-            const botaoLeiaMais = document.createElement('a');
-            botaoLeiaMais.href = item.link;
+            const botaoLeiaMais = document.createElement('button');
             botaoLeiaMais.classList.add('button-leia-mais');
             botaoLeiaMais.textContent = 'LEIA MAIS';
-
+            botaoLeiaMais.addEventListener('click', () => abrirModal(item));
 
             textContent.appendChild(titulo);
             textContent.appendChild(data);
@@ -79,4 +77,49 @@ async function carregarConteudo(dados, tipo) {
     } catch (erro) {
         console.log('Erro ao carregar conteúdo:', erro);
     }
+}
+
+function abrirModal(item) {
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    const modalContent = document.createElement('div');
+    modalContent.classList.add('modal-content');
+
+    const img = document.createElement('img');
+    img.src = item.image;
+    img.alt = item.titulo;
+    img.classList.add('modal-img');
+    modalContent.appendChild(img);
+
+    const titulo = document.createElement('h2');
+    titulo.textContent = item.titulo;
+    modalContent.appendChild(titulo);
+
+    const data = document.createElement('p');
+    data.classList.add('modal-date');
+    data.textContent = item.data;
+    modalContent.appendChild(data);
+
+    const descricao = document.createElement('p');
+    descricao.textContent = item.descricao;
+    modalContent.appendChild(descricao);
+
+    const botaoMinimizar = document.createElement('button');
+    botaoMinimizar.textContent = 'Minimizar';
+    botaoMinimizar.classList.add('modal-close');
+    botaoMinimizar.addEventListener('click', () => fecharModal(modal));
+    modalContent.appendChild(botaoMinimizar);
+
+    const modaisAtivos = document.querySelectorAll('.modal');
+    if (modaisAtivos.length > 0) {
+        modaisAtivos.forEach(modal => modal.remove());
+    }
+
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+}
+
+function fecharModal(modal) {
+    modal.remove();
 }

@@ -36,7 +36,6 @@
     transition: all 0.3s;
 }
 
-/* Efeito de foco nos campos */
 .post-form input:focus,
 .post-form textarea:focus {
     border-color: #5b3b89;
@@ -45,13 +44,11 @@
     box-shadow: 0 0 10px rgba(123, 104, 238, 0.5);
 }
 
-/* Estilo do Textarea */
 .post-form textarea {
     resize: vertical;
     min-height: 150px;
 }
 
-/* Botão de envio */
 .post-form button {
     background: linear-gradient(135deg, #764ba2, #5b3b89);
     color: white;
