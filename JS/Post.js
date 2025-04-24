@@ -40,76 +40,132 @@ function displayPosts(posts) {
     document.querySelectorAll(".delete-post").forEach(button => {
         button.addEventListener("click", async (e) => {
             const postId = e.target.dataset.id;
-            console.log("A apagar post com ID:", postId);
 
-            if (confirm("Tens a certeza que queres apagar este post?")) {
+            const result = await Swal.fire({
+                title: "Tens a certeza?",
+                text: "Esta ação não pode ser revertida!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#e53935",
+                cancelButtonColor: "#bdbdbd",
+                confirmButtonText: "Sim, apagar!",
+                cancelButtonText: "Cancelar"
+            });
+
+            if (result.isConfirmed) {
                 try {
                     await deletePost(postId);
+
+                    Swal.fire({
+                        title: "Apagado!",
+                        text: "O post foi removido com sucesso.",
+                        icon: "success",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+
                     const posts = await getPosts();
                     displayPosts(posts);
                 } catch (err) {
                     console.error("Erro ao apagar post:", err);
-                    alert("Erro ao apagar o post. Verifica a consola para mais detalhes.");
+                    Swal.fire("Erro!", "Não foi possível apagar o post.", "error");
                 }
             }
         });
     });
 
 
+    let currentEditingPostId = null;
+
     document.querySelectorAll(".edit-post").forEach(button => {
         button.addEventListener("click", (e) => {
-            const postId = e.target.dataset.id;
             const postItem = e.target.closest(".post-item");
-    
-            const titleEl = postItem.querySelector(".post-title");
-            const contentEl = postItem.querySelector(".post-content");
-            const imageEl = postItem.querySelector(".post-image");
-            const actionsContainer = postItem.querySelector(".post-actions");
-    
-            const currentTitle = titleEl.textContent;
-            const currentContent = contentEl.textContent;
-            const currentImage = imageEl.src;
-    
-            titleEl.innerHTML = `<input type="text" class="edit-title-input" value="${currentTitle}">`;
-            contentEl.innerHTML = `<textarea class="edit-content-textarea">${currentContent}</textarea>`;
-            imageEl.outerHTML = `
-                <div class="edit-image-wrapper">
-                    <input type="text" class="edit-image-input" value="${currentImage}" />
-                    <img src="${currentImage}" alt="Pré-visualização" class="preview-image" />
-                </div>
-            `;
-    
-            actionsContainer.innerHTML = `
-                <button class="save-post" data-id="${postId}">Guardar</button>
-                <button class="cancel-edit">Cancelar</button>
-            `;
-    
-            actionsContainer.querySelector(".save-post").addEventListener("click", async () => {
-                const newTitle = postItem.querySelector(".edit-title-input").value;
-                const newContent = postItem.querySelector(".edit-content-textarea").value;
-                const newImage = postItem.querySelector(".edit-image-input").value;
-    
-                try {
-                    await updatePost(postId, {
-                        title: newTitle,
-                        content: newContent,
-                        image: newImage
-                    });
-    
-                    const posts = await getPosts();
-                    displayPosts(posts);
-                } catch (err) {
-                    console.error("Erro ao guardar:", err);
-                    alert("Erro ao guardar alterações.");
-                }
-            });
-    
-            actionsContainer.querySelector(".cancel-edit").addEventListener("click", async () => {
-                const posts = await getPosts();
-                displayPosts(posts); 
-            });
+            currentEditingPostId = e.target.dataset.id;
+
+            const title = postItem.querySelector(".post-title").textContent;
+            const content = postItem.querySelector(".post-content").textContent;
+            const image = postItem.querySelector(".post-image").src;
+
+            document.getElementById("modal-title").value = title;
+            document.getElementById("modal-content").value = content;
+            document.getElementById("modal-image").value = image;
+            document.getElementById("modal-preview").src = image;
+
+            document.getElementById("edit-modal").classList.remove("hidden");
         });
     });
-    
-    
+
+    document.getElementById("modal-image").addEventListener("input", (e) => {
+        document.getElementById("modal-preview").src = e.target.value;
+    });
+
+    document.getElementById("save-post").addEventListener("click", async () => {
+        const result = await Swal.fire({
+            title: "Queres guardar as alterações?",
+            icon: "question",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Sim, guardar",
+            denyButtonText: "Não guardar",
+            cancelButtonText: "Cancelar"
+        });
+
+        if (result.isConfirmed) {
+            const newTitle = document.getElementById("modal-title").value;
+            const newContent = document.getElementById("modal-content").value;
+            const newImage = document.getElementById("modal-image").value;
+
+            try {
+                await updatePost(currentEditingPostId, {
+                    title: newTitle,
+                    content: newContent,
+                    image: newImage
+                });
+
+                await Swal.fire({
+                    title: "Alterações guardadas com sucesso!",
+                    icon: "success",
+                    timer: 1800,
+                    showConfirmButton: false
+                });
+
+                document.getElementById("edit-modal").classList.add("hidden");
+                const posts = await getPosts();
+                displayPosts(posts);
+            } catch (err) {
+                console.error("Erro ao guardar:", err);
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro ao guardar alterações",
+                    text: "Verifica a consola para mais detalhes.",
+                });
+            }
+
+        } else if (result.isDenied) {
+            Swal.fire("Alterações descartadas.", "", "info");
+            document.getElementById("edit-modal").classList.add("hidden");
+            const posts = await getPosts();
+            displayPosts(posts);
+        }
+    });
+
+    document.getElementById("cancel-edit").addEventListener("click", async () => {
+        const result = await Swal.fire({
+            title: "Descartar alterações?",
+            text: "Vais perder as mudanças feitas.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sim, descartar",
+            cancelButtonText: "Cancelar"
+        });
+
+        if (result.isConfirmed) {
+            document.getElementById("edit-modal").classList.add("hidden");
+            const posts = await getPosts();
+            displayPosts(posts);
+        }
+    });
+
+
+
 }

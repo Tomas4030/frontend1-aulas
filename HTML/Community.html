@@ -7,6 +7,8 @@
     <title>R6 News</title>
     <link rel="stylesheet" href="../CSS/main.css">
     <link href="../components/favicon.ico" rel="icon" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.19.1/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.19.1/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -22,8 +24,21 @@
     </header>
 
     <main>
-        <section class="post-content" id="post-list" style="margin: 0 auto; max-width: 1200px;"></section>
-        </section>
+        <section class="post-content" id="post-list"></section>
+
+        <div id="edit-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Editar Post</h2>
+                <input type="text" id="modal-title" class="edit-title-input" placeholder="Título">
+                <textarea id="modal-content" class="edit-content-textarea" placeholder="Conteúdo"></textarea>
+                <input type="text" id="modal-image" class="edit-image-input" placeholder="URL da imagem">
+                <img id="modal-preview" class="preview-image" src="" alt="Pré-visualização">
+                <div class="modal-actions">
+                    <button id="save-post" class="save-post">Guardar</button>
+                    <button id="cancel-edit" class="cancel-edit">Cancelar</button>
+                </div>
+            </div>
+        </div>
     </main>
 
 
