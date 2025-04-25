@@ -64,7 +64,7 @@ async function carregarConteudo(dados, tipo) {
             const botaoLeiaMais = document.createElement('button');
             botaoLeiaMais.classList.add('button-leia-mais');
             botaoLeiaMais.textContent = 'LEIA MAIS';
-            botaoLeiaMais.addEventListener('click', () => abrirModal(item));
+            botaoLeiaMais.addEventListener('click', () => abrirModalNoticia(item));
 
             textContent.appendChild(titulo);
             textContent.appendChild(data);
@@ -79,17 +79,17 @@ async function carregarConteudo(dados, tipo) {
     }
 }
 
-function abrirModal(item) {
+function abrirModalNoticia(item) {
     const modal = document.createElement('div');
-    modal.classList.add('modal');
+    modal.classList.add('noticia-modal');
 
     const modalContent = document.createElement('div');
-    modalContent.classList.add('modal-content');
+    modalContent.classList.add('noticia-modal-content');
 
     const img = document.createElement('img');
     img.src = item.image;
     img.alt = item.titulo;
-    img.classList.add('modal-img');
+    img.classList.add('noticia-modal-img');
     modalContent.appendChild(img);
 
     const titulo = document.createElement('h2');
@@ -97,7 +97,7 @@ function abrirModal(item) {
     modalContent.appendChild(titulo);
 
     const data = document.createElement('p');
-    data.classList.add('modal-date');
+    data.classList.add('noticia-modal-date');
     data.textContent = item.data;
     modalContent.appendChild(data);
 
@@ -105,13 +105,13 @@ function abrirModal(item) {
     descricao.textContent = item.descricao;
     modalContent.appendChild(descricao);
 
-    const botaoMinimizar = document.createElement('button');
-    botaoMinimizar.textContent = 'Minimizar';
-    botaoMinimizar.classList.add('modal-close');
-    botaoMinimizar.addEventListener('click', () => fecharModal(modal));
-    modalContent.appendChild(botaoMinimizar);
+    const botaoFechar = document.createElement('button');
+    botaoFechar.textContent = 'Minimizar';
+    botaoFechar.classList.add('noticia-modal-close');
+    botaoFechar.addEventListener('click', () => fecharModalNoticia(modal));
+    modalContent.appendChild(botaoFechar);
 
-    const modaisAtivos = document.querySelectorAll('.modal');
+    const modaisAtivos = document.querySelectorAll('.noticia-modal');
     if (modaisAtivos.length > 0) {
         modaisAtivos.forEach(modal => modal.remove());
     }
@@ -120,6 +120,6 @@ function abrirModal(item) {
     document.body.appendChild(modal);
 }
 
-function fecharModal(modal) {
+function fecharModalNoticia(modal) {
     modal.remove();
 }

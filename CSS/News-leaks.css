@@ -104,7 +104,7 @@ h2 {
     background-color: #0390c4;
 }
 
-.modal {
+.noticia-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -117,23 +117,24 @@ h2 {
     z-index: 1000;
 }
 
-.modal-content {
+.noticia-modal-content {
     background-color: white;
     padding: 20px;
     width: 80%;
-    max-width: 800px;
+    max-width: 700px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    font-size: 16px;
 }
 
-.modal-img {
+.noticia-modal-img {
     width: 100%;
     height: auto;
     border-radius: 8px;
 }
 
-.modal-date {
+.noticia-modal-date {
     font-size: 0.9em;
     margin: 15px 0;
     color: rgb(255, 255, 255);
@@ -145,7 +146,7 @@ h2 {
     clip-path: polygon(00% 0%, 90% 0%, 100% 100%, 0% 100%);
 }
 
-.modal-close {
+.noticia-modal-close {
     margin-top: 20px;
     background-color: #f39c12;
     color: white;
@@ -156,6 +157,7 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
-.modal-close:hover {
+.noticia-modal-close:hover {
     background-color: #e67e22;
 }
+
