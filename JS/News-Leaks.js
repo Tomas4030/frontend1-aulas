@@ -52,7 +52,7 @@ function criarCard(item, container) {
 
   if (item.image) {
     const img = document.createElement('img');
-    img.src = item.image;
+    img.src = corrigirCaminhoImagem(item.image);
     img.alt = item.titulo;
     img.classList.add('card-img');
     cardContent.appendChild(img);
@@ -74,21 +74,17 @@ function criarCard(item, container) {
   const botaoLeiaMais = document.createElement('button');
   botaoLeiaMais.classList.add('button-leia-mais');
   botaoLeiaMais.textContent = 'LEIA MAIS';
+
   if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
     botaoLeiaMais.addEventListener('click', () => {
-
       if (document.getElementById('noticias-section').contains(botaoLeiaMais)) {
         window.location.href = "./HTML/News.html";
-      }
-
-      else if (document.getElementById('leaks-section').contains(botaoLeiaMais)) {
+      } else if (document.getElementById('leaks-section').contains(botaoLeiaMais)) {
         window.location.href = "./HTML/Leaks.html";
       }
     });
   } else {
-    botaoLeiaMais.addEventListener('click', () => {
-      botaoLeiaMais.addEventListener('click', () => abrirModalNoticia(item));
-    });
+    botaoLeiaMais.addEventListener('click', () => abrirModalNoticia(item));
   }
 
   textContent.appendChild(titulo);
@@ -108,7 +104,7 @@ function abrirModalNoticia(item) {
   modalContent.classList.add('noticia-modal-content');
 
   const img = document.createElement('img');
-  img.src = item.image;
+  img.src = corrigirCaminhoImagem(item.image);
   img.alt = item.titulo;
   img.classList.add('noticia-modal-img');
   modalContent.appendChild(img);
@@ -145,17 +141,14 @@ function fecharModalNoticia(modal) {
   modal.remove();
 }
 
-// NOVA FUNÇÃO PARA O INDEX
 function carregarUltimasNoticiasELeaks(dados) {
   const noticiasContainer = document.getElementById('noticias-container');
   const leaksContainer = document.getElementById('leaks-container');
 
-  // Ordena e pega as 2 últimas notícias
   const ultimasNoticias = dados.noticias
     .sort((a, b) => new Date(b.data) - new Date(a.data))
     .slice(0, 2);
 
-  // Ordena e pega os 2 últimos leaks
   const ultimosLeaks = dados.leaks
     .sort((a, b) => new Date(b.data) - new Date(a.data))
     .slice(0, 2);
@@ -165,4 +158,11 @@ function carregarUltimasNoticiasELeaks(dados) {
 
   ultimasNoticias.forEach(item => criarCard(item, noticiasContainer));
   ultimosLeaks.forEach(item => criarCard(item, leaksContainer));
+}
+
+function corrigirCaminhoImagem(caminho) {
+  if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+    return caminho.replace("../", "./");
+  }
+  return caminho;
 }
