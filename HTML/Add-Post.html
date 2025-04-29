@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>R6 Leaks</title>
+  <title>R6Hub - Add Post</title>
   <link rel="stylesheet" href="../CSS/main.css">
   <link href="../components/Img/favicon.ico" rel="icon" type="image/x-icon">
 </head>
@@ -14,37 +14,47 @@
     <div class="navbar">
       <a href="../index.html" class="home"><img src="../components/Img/logo.jpeg" alt="Home"></a>
       <nav>
-        <a href="News.html">News</a>
+        <a href="News.html">Notícias</a>
         <a href="Leaks.html">Leaks</a>
-        <a href="Community.html">Community</a>
+        <a href="Community.html">Comunidade</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="add-post-container">
+      <div class="description-form">
+        <h2 class="H2-from">Cr</h2> 
+        <p class="P-from"></p>
+      </div>
+  
       <form id="add-post-form" class="post-form">
-        <label for="post-title">Title</label>
-        <input type="text" id="post-title" name="title" placeholder="Enter the post title" required />
-
-        <label for="post-content">Content</label>
-        <textarea id="post-content" name="content" placeholder="Write your post content here..." required
-          maxlength="200"></textarea>
-
-        <label for="post-image">Image URL</label>
-        <input type="url" id="post-image" name="image" placeholder="Enter the image URL" required />
-
-        <label for="post-author">Author</label>
-        <input type="text" id="post-author" name="author" placeholder="Enter the author's name" required />
-
-        <label for="post-avatar">Author Avatar URL</label>
-        <input type="url" id="post-avatar" name="avatar" placeholder="Enter the author's avatar URL" required />
-
+  
+        <div>
+          <input type="text" id="post-title" name="title" class="form_input" placeholder="Título" required />
+        </div>
+  
+        <div>
+          <textarea id="post-content" name="content" class="form_input" placeholder="Conteúdo" required maxlength="200"></textarea>
+        </div>
+  
+        <div>
+          <input type="url" id="post-image" name="image" class="form_input" placeholder="URL da imagem" required />
+        </div>
+  
+        <div>
+          <input type="text" id="post-author" name="author" class="form_input" placeholder="Autor" required />
+        </div>
+  
+        <div>
+          <input type="url" id="post-avatar" name="avatar" class="form_input" placeholder="URL do avatar" required />
+        </div>
+  
         <button type="submit">Add Post</button>
       </form>
     </section>
-
   </main>
+  
 
     <footer>
         <div class="footer-container">

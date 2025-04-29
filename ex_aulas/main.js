@@ -91,8 +91,10 @@ export const getPost = async () => {
   return data;
 };
 
+document.getElementById("buscar-imagem").addEventListener("click", buscarImagem);
 
 function buscarImagem() {
+  
   const breed = document.getElementById("breed").value.trim().toLowerCase();
   const api = `https://dog.ceo/api/breed/${breed}/images/random`;
 
@@ -163,49 +165,63 @@ function animate() {
 }
 animate();
 
-//import 
-class TestWebComponent extends HTMLElement {
+navigator.geolocation.getCurrentPosition(function(position) {
+  console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+});
+
+
+
+class CartaoUtilizador extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
+
+  static get observedAttributes() {
+    return ['nome', 'idade'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'nome' || name === 'idade') {
+      this.updateCard();
+    }
+  }
+
   connectedCallback() {
-    this.innerHTML = `<a href="https://github.com/Tomas4030">Ver</a>`;
+    this.updateCard();
+  }
+
+  updateCard() {
+    const nome = this.getAttribute('nome');
+    const idade = this.getAttribute('idade');
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        .cartao {
+          border: 1px solid #ccc;
+          padding: 20px;
+          border-radius: 8px;
+          font-family: Arial, sans-serif;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          background-color: #fff;
+          max-width: 200px;
+          text-align: center;
+        }
+        .nome {
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+        .idade {
+          font-size: 1.2em;
+          color: #555;
+        }
+      </style>
+      <div class="cartao">
+        <div class="nome">${nome}</div>
+        <div class="idade">${idade} anos</div>
+      </div>
+    `;
   }
 }
 
-customElements.define("test-web-component", TestWebComponent);
-
-class ShadowButton extends HTMLElement {
-  constructor() {
-    super();
-    const shadow = this.attachShadow({ mode: "open" });
-
-    // Get the attribute value or use default
-    const buttonText = this.getAttribute("button-text") || "Hello World";
-
-    shadow.innerHTML = `
-    <style>
-      button {
-        background-color: #4361ee;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-    </style>
-    <button>${buttonText}</button>`;
-  }
-}
-
-customElements.define("shadow-button", ShadowButton);
-
-class CustomParagraph extends HTMLElement {
-  constructor() {
-    super();
-    let template = document.getElementById("custom-paragraph");
-    let templateContent = template.content;
-
-    const shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.appendChild(templateContent.cloneNode(true));
-  }
-}
-
-customElements.define("my-paragraph", CustomParagraph);
+customElements.define('cartao-utilizador', CartaoUtilizador);

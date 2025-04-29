@@ -96,6 +96,7 @@ function criarCard(item, container) {
   container.appendChild(card);
 }
 
+//Modal
 function abrirModalNoticia(item) {
   const modal = document.createElement('div');
   modal.classList.add('noticia-modal');
