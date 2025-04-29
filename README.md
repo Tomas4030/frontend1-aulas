@@ -1,14 +1,11 @@
 ### **R6Hub** 
 
-<br>
 
 ### **Descrição do website:** 
-O R6Hub é o lugar onde encontras as últimas notícias e leaks sobre Rainbow Six Siege. A nossa página principal é atualizada constantemente com as duas notícias e leaks mais recentes, para que nunca percas as novidades mais importantes.
+O R6Hub é o lugar onde encontras as últimas notícias e leaks sobre Rainbow Six Siege. A página principal é atualizada constantemente com as duas notícias e leaks mais recentes, para que nunca percas as novidades mais importantes.
 Na página de notícias, as informações estão organizadas por data, com a notícia mais recente sempre no topo. O mesmo acontece na página de leaks, para que tenhas tudo bem organizado e fácil de aceder.
 
 Além disso, temos uma área da comunidade onde podes criar, editar e apagar os teus próprios posts, para partilhares dicas, estratégias ou o que mais quiseres com outros jogadores.
-
-Simples, rápido e direto ao ponto — o R6Hub é o teu espaço para estar sempre a par de tudo o que acontece no mundo de Rainbow Six Siege.
 
 <br>
 
