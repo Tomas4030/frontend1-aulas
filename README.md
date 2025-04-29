@@ -1,26 +1,28 @@
-### **R6Hub** 
+### **Titulo do website:** R6Hub
 
+<br>
 
-### **Descrição do website:** 
-O R6Hub é o lugar onde encontras as últimas notícias e leaks sobre Rainbow Six Siege. A página principal é atualizada constantemente com as duas notícias e leaks mais recentes, para que nunca percas as novidades mais importantes.
+### **Descrição do website:** O R6Hub é o lugar onde encontras as últimas notícias e leaks sobre Rainbow Six Siege. A nossa página principal é atualizada constantemente com as duas notícias e leaks mais recentes, para que nunca percas as novidades mais importantes.
 Na página de notícias, as informações estão organizadas por data, com a notícia mais recente sempre no topo. O mesmo acontece na página de leaks, para que tenhas tudo bem organizado e fácil de aceder.
 
 Além disso, temos uma área da comunidade onde podes criar, editar e apagar os teus próprios posts, para partilhares dicas, estratégias ou o que mais quiseres com outros jogadores.
+
+Simples, rápido e direto ao ponto — o R6Hub é o teu espaço para estar sempre a par de tudo o que acontece no mundo de Rainbow Six Siege.
 
 <br>
 
 # Requisitos
 
-1. Converter objecto javascript para json e vice versa - [Reference](https://docs.google.com/presentation/d/16kchou9WWyFQUxsQ6YmfFqjlAc1HmMlo/edit?slide=id.g347fc7997ef_0_53#slide=id.g347fc7997ef_0_53)
-2. Guardar e ler informação da local storage - [Reference](https://docs.google.com/presentation/d/16kchou9WWyFQUxsQ6YmfFqjlAc1HmMlo/edit?slide=id.g3483b2c8586_0_105#slide=id.g3483b2c8586_0_105)
-3. Inserir informação através de formulário e mostrar informação após submeter [Reference](https://docs.google.com/presentation/d/16kchou9WWyFQUxsQ6YmfFqjlAc1HmMlo/edit?slide=id.g34944a9bf2f_0_68#slide=id.g34944a9bf2f_0_68)
-4. Fazer fetch de uma api e mostrar resultados no ecrã [Reference](https://docs.google.com/presentation/d/16kchou9WWyFQUxsQ6YmfFqjlAc1HmMlo/edit?slide=id.g349a8828690_2_63#slide=id.g349a8828690_2_63)
-5. Através de um input, inserir um termo de procura e apresentar resultados de uma API pública [Reference](https://docs.google.com/presentation/d/16kchou9WWyFQUxsQ6YmfFqjlAc1HmMlo/edit?slide=id.g304d5c085db_0_70#slide=id.g304d5c085db_0_70)
-6. Implementar pelo menos 2 apis nativas de javascript, por exemplo geolocation e clipboard [Reference](https://docs.google.com/presentation/d/16kchou9WWyFQUxsQ6YmfFqjlAc1HmMlo/edit?slide=id.g304d5c085db_0_142#slide=id.g304d5c085db_0_142)
-7. Desenhar 2 formas básicas no canvas api [Reference](https://docs.google.com/presentation/d/16kchou9WWyFQUxsQ6YmfFqjlAc1HmMlo/edit?slide=id.g34e23982766_0_58#slide=id.g34e23982766_0_58)
-8. Implementar um component de web components [Reference](https://docs.google.com/presentation/d/16kchou9WWyFQUxsQ6YmfFqjlAc1HmMlo/edit?slide=id.g34e23982766_0_129#slide=id.g34e23982766_0_129)
-9. Utilizar uma biblioteca externa, por exemplo, caroussel [Reference](https://docs.google.com/presentation/d/16kchou9WWyFQUxsQ6YmfFqjlAc1HmMlo/edit?slide=id.g34ff373a90f_0_47#slide=id.g34ff373a90f_0_47)
-10. Gerar report do Lighthouse e colocar screenshot no repositório do projeto [Reference](https://docs.google.com/presentation/d/16kchou9WWyFQUxsQ6YmfFqjlAc1HmMlo/edit?slide=id.g304f4088e01_1_85#slide=id.g304f4088e01_1_85)
+1. Converter objecto javascript para json e vice versa - [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/lib/Api.js)
+2. Guardar e ler informação da local storage - [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/ex_aulas/main.js)
+3. Inserir informação através de formulário e mostrar informação após submeter [Inserir](https://github.com/Tomas4030/frontend1-aulas/blob/main/JS/add-posts.js) [Ver] (https://github.com/Tomas4030/frontend1-aulas/blob/main/JS/Post.js)
+4. Fazer fetch de uma api e mostrar resultados no ecrã [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/JS/Post.js)
+5. Através de um input, inserir um termo de procura e apresentar resultados de uma API pública [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/ex_aulas/main.js)
+6. Implementar pelo menos 2 apis nativas de javascript, por exemplo geolocation e clipboard [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/ex_aulas/main.js)
+7. Desenhar 2 formas básicas no canvas api [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/ex_aulas/main.js)
+8. Implementar um component de web components [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/ex_aulas/main.js)
+9. Utilizar uma biblioteca externa, por exemplo, caroussel [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/JS/Post.js)
+10. Gerar report do Lighthouse e colocar screenshot no repositório do projeto [Reference]()
 
 ## Bonus
 
