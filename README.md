@@ -15,7 +15,7 @@ Simples, rápido e direto ao ponto — o R6Hub é o teu espaço para estar sempr
 
 1. Converter objecto javascript para json e vice versa - [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/lib/Api.js)
 2. Guardar e ler informação da local storage - [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/ex_aulas/main.js)
-3. Inserir informação através de formulário e mostrar informação após submeter [Inserir](https://github.com/Tomas4030/frontend1-aulas/blob/main/JS/add-posts.js) [Ver] (https://github.com/Tomas4030/frontend1-aulas/blob/main/JS/Post.js)
+3. Inserir informação através de formulário e mostrar informação após submeter [Inserir](https://github.com/Tomas4030/frontend1-aulas/blob/main/JS/add-posts.js) [Reference] (https://github.com/Tomas4030/frontend1-aulas/blob/main/JS/Post.js)
 4. Fazer fetch de uma api e mostrar resultados no ecrã [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/JS/Post.js)
 5. Através de um input, inserir um termo de procura e apresentar resultados de uma API pública [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/ex_aulas/main.js)
 6. Implementar pelo menos 2 apis nativas de javascript, por exemplo geolocation e clipboard [Reference](https://github.com/Tomas4030/frontend1-aulas/blob/main/ex_aulas/main.js)
