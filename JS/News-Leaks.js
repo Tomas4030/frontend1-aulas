@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       carregarConteudo(dados[0], 'leaks');
     } else if (window.location.pathname.includes("News.html")) {
       carregarConteudo(dados[0], 'noticias');
-    } else if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+    } else if (window.location.pathname.includes("index.html")) {
       carregarUltimasNoticiasELeaks(dados[0]);
     }
 
