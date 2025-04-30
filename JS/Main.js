@@ -1,9 +1,13 @@
-//Main Page
+
+
+//Primeiro exercicio usando o Json (Não usado mais na pagina so esta aqui de exemplo!!!!)
+
+
 async function fetchJSON() {
     try {
         const response = await fetch("./JSON/data.json");
         const data = await response.json();
-        
+
         updateContent("latest_news1", data.latest_news.latest_news1);
         updateContent("latest_news2", data.latest_news.latest_news2);
         updateContent("latest_leaks1", data.latest_leaks.latest_leaks1);

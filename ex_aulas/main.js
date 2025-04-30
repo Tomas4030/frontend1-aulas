@@ -53,7 +53,7 @@ function saveName(event) {
   localStorage.setItem("userName", newName);
   document.getElementById('user_username').textContent = newName;
   console.log("Nome salvo:", newName);
-  document.getElementById('name').value = ''; 
+  document.getElementById('name').value = '';
 }
 
 function loadTheme() {
@@ -94,7 +94,7 @@ export const getPost = async () => {
 document.getElementById("buscar-imagem").addEventListener("click", buscarImagem);
 
 function buscarImagem() {
-  
+
   const breed = document.getElementById("breed").value.trim().toLowerCase();
   const api = `https://dog.ceo/api/breed/${breed}/images/random`;
 
@@ -165,7 +165,7 @@ function animate() {
 }
 animate();
 
-navigator.geolocation.getCurrentPosition(function(position) {
+navigator.geolocation.getCurrentPosition(function (position) {
   console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
 });
 

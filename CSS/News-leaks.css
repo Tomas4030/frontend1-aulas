@@ -43,7 +43,8 @@
     clip-path: polygon(00% 0%, 90% 0%, 100% 100%, 0% 100%);
 }
 
-.date::before, .date::after {
+.date::before,
+.date::after {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -138,4 +139,3 @@
 .noticia-modal-close:hover {
     background-color: #e67e22;
 }
-

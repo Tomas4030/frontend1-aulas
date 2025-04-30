@@ -7,6 +7,8 @@
   <title>R6Hub - Add Post</title>
   <link rel="stylesheet" href="../CSS/main.css">
   <link href="../components/Img/favicon.ico" rel="icon" type="image/x-icon">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
@@ -14,9 +16,9 @@
     <div class="navbar">
       <a href="../index.html" class="home"><img src="../components/Img/logo.jpeg" alt="Home"></a>
       <nav>
-        <a href="News.html">Notícias</a>
-        <a href="Leaks.html">Leaks</a>
-        <a href="Community.html">Comunidade</a>
+        <a href="./News.html"><ion-icon name="newspaper-outline"></ion-icon>Notícias</a>
+        <a href="./Leaks.html"><ion-icon name="document-text-outline"></ion-icon>Leaks</a>
+        <a href="./Community.html"><ion-icon name="people-outline"></ion-icon>Comunidade</a>
       </nav>
     </div>
   </header>
@@ -24,83 +26,81 @@
   <main>
     <section class="add-post-container">
       <div class="description-form">
-        <h2 class="H2-from">Crie seu Post</h2> 
+        <h2 class="H2-from">Crie seu Post</h2>
         <p class="P-from">Escreva algo que a comunidade possa ajudar, seja um dica, estratégia ou o que quiseres.</p>
       </div>
-  
+
       <form id="add-post-form" class="post-form">
-  
+
         <div>
           <input type="text" id="post-title" name="title" class="form_input" placeholder="Título" required />
         </div>
-  
+
         <div>
-          <textarea id="post-content" name="content" class="form_input" placeholder="Conteúdo" required maxlength="200"></textarea>
+          <textarea id="post-content" name="content" class="form_input" placeholder="Conteúdo" required
+            maxlength="200"></textarea>
         </div>
-  
+
         <div>
           <input type="url" id="post-image" name="image" class="form_input" placeholder="URL da imagem" required />
         </div>
-  
+
         <div>
           <input type="text" id="post-author" name="author" class="form_input" placeholder="Autor" required />
         </div>
-  
+
         <div>
           <input type="url" id="post-avatar" name="avatar" class="form_input" placeholder="URL do avatar" required />
         </div>
-  
+
         <button type="submit">Add Post</button>
       </form>
     </section>
   </main>
-  
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-links">
-                <h3>Links Úteis</h3>
-                <ul>
-                    <li><a href="#">Sobre Nós</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
-                    <li><a href="#">Termos de Serviço</a></li>
-                    <li><a href="#">Contate-nos</a></li>
-                </ul>
-            </div>
 
-            <div class="footer-social">
-                <h3>Siga-nos</h3>
-                <ul>
-                    <li>
-                        <a href="https://facebook.com" target="_blank">
-                            <img src="../components/Img/Ubisoft__global_facebook_logo.png"
-                                alt="Facebook">
-                            Facebook
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://instagram.com" target="_blank">
-                            <img src="../components/Img/Ubisoft__global_instagram_logo.png"
-                                alt="Instagram">
-                            Instagram
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://youtube.com" target="_blank">
-                            <img src="../components/Img/Ubisoft__global_youtube_logo.png"
-                                alt="YouTube">
-                            YouTube
-                        </a>
-                    </li>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-links">
+        <h3>Links Úteis</h3>
+        <ul>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Termos de Serviço</a></li>
+          <li><a href="#">Contate-nos</a></li>
+        </ul>
+      </div>
 
-                </ul>
-            </div>
+      <div class="footer-social">
+        <h3>Siga-nos</h3>
+        <ul>
+          <li>
+            <a href="https://facebook.com" target="_blank">
+              <img src="../components/Img/Ubisoft__global_facebook_logo.png" alt="Facebook">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com" target="_blank">
+              <img src="../components/Img/Ubisoft__global_instagram_logo.png" alt="Instagram">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://youtube.com" target="_blank">
+              <img src="../components/Img/Ubisoft__global_youtube_logo.png" alt="YouTube">
+              YouTube
+            </a>
+          </li>
 
-            <div class="footer-copyright">
-                <p>&copy; 2025 R6 News. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
+        </ul>
+      </div>
+
+      <div class="footer-copyright">
+        <p>&copy; 2025 R6 Hub. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
 
   <script src="../JS/add-posts.js" type="module"></script>
 </body>

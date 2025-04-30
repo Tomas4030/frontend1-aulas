@@ -19,18 +19,17 @@ function displayPosts(posts) {
             <p class="post-content">${post.content}</p>
             <div class="post-author">
                 <div class="post-author-info">
-                    <img class="post-author-avatar" src="${post.avatar}" alt="${
-      post.author
-    }"/>
+                    <img class="post-author-avatar" src="${post.avatar}" alt="${post.author
+      }"/>
                     <div class="post-author-name">${post.author}</div>
                 </div>
                 <div class="post-date">${new Date(
-                  post.createdAt
-                ).toLocaleDateString("pt-PT", {
-                  day: "2-digit",
-                  month: "2-digit",
-                  year: "numeric",
-                })}</div>
+        post.createdAt
+      ).toLocaleDateString("pt-PT", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      })}</div>
             </div>
             <div class="post-actions">
                 <button class="edit-post" data-id="${post.id}">Editar</button>

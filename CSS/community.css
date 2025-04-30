@@ -1,4 +1,3 @@
-/* Container principal de posts */
 #post-list {
   width: 100%;
   max-width: 1200px;
@@ -8,7 +7,6 @@
   gap: 30px;
 }
 
-/* Estilos para cada post */
 .post-item {
   background-color: #ffffff;
   border-radius: 16px;
@@ -22,7 +20,6 @@
   box-shadow: 0 12px 28px rgba(185, 29, 29, 0.12);
 }
 
-/* Imagem do post */
 .post-image {
   width: 100%;
   height: 220px;
@@ -36,7 +33,6 @@
   filter: brightness(0.95);
 }
 
-/* Título do post */
 .post-title {
   font-size: 1.75rem;
   font-weight: 700;
@@ -46,7 +42,6 @@
   transition: color 0.3s ease;
 }
 
-/* Conteúdo do post */
 .post-content {
   padding: 0 25px 25px;
   font-size: 1rem;
@@ -55,7 +50,6 @@
   line-height: 1.6;
 }
 
-/* Autor do post */
 .post-author {
   display: flex;
   justify-content: space-between;
@@ -89,7 +83,6 @@
   color: #bbb;
 }
 
-/* Botões de ação */
 .post-actions {
   display: flex;
   justify-content: space-between;
@@ -118,7 +111,6 @@
   transform: translateY(2px);
 }
 
-/* Estilos dos botões de edição, salvar, cancelar e excluir */
 .edit-post,
 .save-post,
 .cancel-edit,
@@ -174,7 +166,6 @@
   transform: translateY(2px);
 }
 
-/* Inputs para editar título, conteúdo e imagem */
 .edit-title-input,
 .edit-content-textarea,
 .edit-image-input {
@@ -211,7 +202,7 @@
   background-color: #fff;
 }
 
-/* Estilo para o wrapper de imagem */
+
 .edit-image-wrapper {
   display: flex;
   flex-direction: column;
@@ -219,7 +210,7 @@
   margin-bottom: 30px;
 }
 
-/* Modal overlay com blur */
+/*Modal*/
 .modal {
   position: fixed;
   inset: 0;
@@ -255,7 +246,6 @@
   transition: all 0.3s ease;
 }
 
-/* Botões do modal */
 .modal-actions {
   display: flex;
   justify-content: flex-end;
@@ -263,31 +253,15 @@
   margin-top: 12px;
 }
 
-/* Animação de entrada */
+/* Animação Modal */
 @keyframes fadeScaleIn {
   from {
     opacity: 0;
     transform: scale(0.96);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-/* (Opcional) Botão de fechar */
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  color: #999;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.modal-close:hover {
-  color: #333;
 }
