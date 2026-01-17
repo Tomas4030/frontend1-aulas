@@ -5,11 +5,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     const dados = await getNews();
     console.log(dados);
 
-    if (window.location.pathname.includes("Leaks.html")) {
+    const pathname = window.location.pathname;
+    const isIndex = pathname === "/" || pathname.endsWith("index.html");
+    const isNews = pathname.endsWith("News.html");
+    const isLeaks = pathname.endsWith("Leaks.html");
+
+    if (isLeaks) {
       carregarConteudo(dados[0], 'leaks');
-    } else if (window.location.pathname.includes("News.html")) {
+    } else if (isNews) {
       carregarConteudo(dados[0], 'noticias');
-    } else if (window.location.pathname.includes("index.html")) {
+    } else if (isIndex) {
       carregarUltimasNoticiasELeaks(dados[0]);
     }
 
@@ -20,30 +25,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function carregarConteudo(dados, tipo) {
   try {
-    let conteudo = [];
+    let conteudo = tipo === 'noticias' ? dados.noticias : dados.leaks;
 
-    if (tipo === 'noticias') {
-      conteudo = dados.noticias;
-    } else if (tipo === 'leaks') {
-      conteudo = dados.leaks;
-    }
+    if (!Array.isArray(conteudo)) return;
 
-    if (Array.isArray(conteudo)) {
-      conteudo.sort((a, b) => new Date(b.data) - new Date(a.data));
-    }
+    // Ordena por data descendente
+    conteudo.sort((a, b) => new Date(b.data) - new Date(a.data));
 
-    const container = document.getElementById('info-container');
+    // Seleciona o container correto
+    const container = tipo === 'noticias'
+      ? document.getElementById('noticias-container')
+      : document.getElementById('leaks-container');
+
+    if (!container) return;
     container.innerHTML = '';
 
-    conteudo.forEach(item => {
-      criarCard(item, container);
-    });
+    conteudo.forEach(item => criarCard(item, container, tipo));
   } catch (erro) {
     console.log('Erro ao carregar conteúdo:', erro);
   }
 }
 
-function criarCard(item, container) {
+function criarCard(item, container, tipo) {
   const card = document.createElement('div');
   card.classList.add('card');
 
@@ -75,11 +78,14 @@ function criarCard(item, container) {
   botaoLeiaMais.classList.add('button-leia-mais');
   botaoLeiaMais.textContent = 'LEIA MAIS';
 
-  if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+  const pathname = window.location.pathname;
+  const isIndex = pathname === "/" || pathname.endsWith("index.html");
+
+  if (isIndex) {
     botaoLeiaMais.addEventListener('click', () => {
-      if (document.getElementById('noticias-section').contains(botaoLeiaMais)) {
+      if (tipo === 'noticias') {
         window.location.href = "./HTML/News.html";
-      } else if (document.getElementById('leaks-section').contains(botaoLeiaMais)) {
+      } else if (tipo === 'leaks') {
         window.location.href = "./HTML/Leaks.html";
       }
     });
@@ -96,7 +102,7 @@ function criarCard(item, container) {
   container.appendChild(card);
 }
 
-//Modal
+// Modal
 function abrirModalNoticia(item) {
   const modal = document.createElement('div');
   modal.classList.add('noticia-modal');
@@ -104,11 +110,13 @@ function abrirModalNoticia(item) {
   const modalContent = document.createElement('div');
   modalContent.classList.add('noticia-modal-content');
 
-  const img = document.createElement('img');
-  img.src = corrigirCaminhoImagem(item.image);
-  img.alt = item.titulo;
-  img.classList.add('noticia-modal-img');
-  modalContent.appendChild(img);
+  if (item.image) {
+    const img = document.createElement('img');
+    img.src = corrigirCaminhoImagem(item.image);
+    img.alt = item.titulo;
+    img.classList.add('noticia-modal-img');
+    modalContent.appendChild(img);
+  }
 
   const titulo = document.createElement('h2');
   titulo.textContent = item.titulo;
@@ -129,10 +137,8 @@ function abrirModalNoticia(item) {
   botaoFechar.addEventListener('click', () => fecharModalNoticia(modal));
   modalContent.appendChild(botaoFechar);
 
-  const modaisAtivos = document.querySelectorAll('.noticia-modal');
-  if (modaisAtivos.length > 0) {
-    modaisAtivos.forEach(modal => modal.remove());
-  }
+  // Remove outros modais ativos
+  document.querySelectorAll('.noticia-modal').forEach(m => m.remove());
 
   modal.appendChild(modalContent);
   document.body.appendChild(modal);
@@ -146,6 +152,8 @@ function carregarUltimasNoticiasELeaks(dados) {
   const noticiasContainer = document.getElementById('noticias-container');
   const leaksContainer = document.getElementById('leaks-container');
 
+  if (!noticiasContainer || !leaksContainer) return;
+
   const ultimasNoticias = dados.noticias
     .sort((a, b) => new Date(b.data) - new Date(a.data))
     .slice(0, 2);
@@ -157,13 +165,14 @@ function carregarUltimasNoticiasELeaks(dados) {
   noticiasContainer.innerHTML = '';
   leaksContainer.innerHTML = '';
 
-  ultimasNoticias.forEach(item => criarCard(item, noticiasContainer));
-  ultimosLeaks.forEach(item => criarCard(item, leaksContainer));
+  ultimasNoticias.forEach(item => criarCard(item, noticiasContainer, 'noticias'));
+  ultimosLeaks.forEach(item => criarCard(item, leaksContainer, 'leaks'));
 }
 
 function corrigirCaminhoImagem(caminho) {
-  if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
-    return caminho.replace("../", "./");
+  // Garante que o caminho seja relativo à raiz
+  if (!caminho.startsWith("/")) {
+    return "/" + caminho.replace(/^(\.\.\/)+/, ""); 
   }
   return caminho;
 }
