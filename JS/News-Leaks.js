@@ -23,30 +23,43 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+// Função principal para carregar conteúdo
 async function carregarConteudo(dados, tipo) {
   try {
     let conteudo = tipo === 'noticias' ? dados.noticias : dados.leaks;
 
     if (!Array.isArray(conteudo)) return;
 
-    // Ordena por data descendente
+    // Ordena por data decrescente
     conteudo.sort((a, b) => new Date(b.data) - new Date(a.data));
 
-    // Seleciona o container correto
-    const container = tipo === 'noticias'
-      ? document.getElementById('noticias-container')
-      : document.getElementById('leaks-container');
+    // Detecta qual container usar
+    const pathname = window.location.pathname;
+    const isIndex = pathname === "/" || pathname.endsWith("index.html");
+
+    let container;
+
+    if (isIndex) {
+      // homepage
+      container = tipo === 'noticias'
+        ? document.getElementById('noticias-container')
+        : document.getElementById('leaks-container');
+    } else {
+      // páginas News.html e Leaks.html
+      container = document.getElementById('info-container');
+    }
 
     if (!container) return;
-    container.innerHTML = '';
 
-    conteudo.forEach(item => criarCard(item, container, tipo));
+    container.innerHTML = '';
+    conteudo.forEach(item => criarCard(item, container, tipo, isIndex));
   } catch (erro) {
     console.log('Erro ao carregar conteúdo:', erro);
   }
 }
 
-function criarCard(item, container, tipo) {
+// Função para criar os cards de notícias/leaks
+function criarCard(item, container, tipo, isIndex) {
   const card = document.createElement('div');
   card.classList.add('card');
 
@@ -78,10 +91,8 @@ function criarCard(item, container, tipo) {
   botaoLeiaMais.classList.add('button-leia-mais');
   botaoLeiaMais.textContent = 'LEIA MAIS';
 
-  const pathname = window.location.pathname;
-  const isIndex = pathname === "/" || pathname.endsWith("index.html");
-
   if (isIndex) {
+    // Na homepage, redireciona para News ou Leaks
     botaoLeiaMais.addEventListener('click', () => {
       if (tipo === 'noticias') {
         window.location.href = "./HTML/News.html";
@@ -90,6 +101,7 @@ function criarCard(item, container, tipo) {
       }
     });
   } else {
+    // Nas páginas individuais, abre modal
     botaoLeiaMais.addEventListener('click', () => abrirModalNoticia(item));
   }
 
@@ -102,7 +114,7 @@ function criarCard(item, container, tipo) {
   container.appendChild(card);
 }
 
-// Modal
+// Função para abrir modal de notícia
 function abrirModalNoticia(item) {
   const modal = document.createElement('div');
   modal.classList.add('noticia-modal');
@@ -137,7 +149,7 @@ function abrirModalNoticia(item) {
   botaoFechar.addEventListener('click', () => fecharModalNoticia(modal));
   modalContent.appendChild(botaoFechar);
 
-  // Remove outros modais ativos
+  // Remove modais ativos antes de abrir outro
   document.querySelectorAll('.noticia-modal').forEach(m => m.remove());
 
   modal.appendChild(modalContent);
@@ -148,6 +160,7 @@ function fecharModalNoticia(modal) {
   modal.remove();
 }
 
+// Função específica para homepage: mostrar só as últimas 2 notícias/leaks
 function carregarUltimasNoticiasELeaks(dados) {
   const noticiasContainer = document.getElementById('noticias-container');
   const leaksContainer = document.getElementById('leaks-container');
@@ -165,14 +178,14 @@ function carregarUltimasNoticiasELeaks(dados) {
   noticiasContainer.innerHTML = '';
   leaksContainer.innerHTML = '';
 
-  ultimasNoticias.forEach(item => criarCard(item, noticiasContainer, 'noticias'));
-  ultimosLeaks.forEach(item => criarCard(item, leaksContainer, 'leaks'));
+  ultimasNoticias.forEach(item => criarCard(item, noticiasContainer, 'noticias', true));
+  ultimosLeaks.forEach(item => criarCard(item, leaksContainer, 'leaks', true));
 }
 
+// Corrige caminhos de imagens para funcionar em todas as páginas
 function corrigirCaminhoImagem(caminho) {
-  // Garante que o caminho seja relativo à raiz
   if (!caminho.startsWith("/")) {
-    return "/" + caminho.replace(/^(\.\.\/)+/, ""); 
+    return "/" + caminho.replace(/^(\.\.\/)+/, "");
   }
   return caminho;
 }
